@@ -30,8 +30,9 @@ describe('Form submits correctly', () => {
     cy.contains('Submit').should('exist');
   })
 
-  describe('inputs can be filled out', () => {
+  describe('inputs can be filled out/submit button', () => {
     it('all inputs work', () => {
+      submitBtn().should('be.disabled')
       firstName()
         .should('have.value', '')
         .type('Justin')
@@ -49,7 +50,9 @@ describe('Form submits correctly', () => {
         .type('shh...secret')
         .should('have.value', 'shh...secret');
       tos().should('not.be.checked').check().should('be.checked');
+      submitBtn().should('not.be.disabled').click();
     })
+
   })
 
 

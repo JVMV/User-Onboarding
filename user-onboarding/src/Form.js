@@ -11,7 +11,7 @@ export default function Form(props) {
       }
     
       const disabled = e => {
-        return null;
+        return !initialValues.firstName || !initialValues.lastName || !initialValues.email || !initialValues.password || !initialValues.tos ? true : false;
       }
     
       const onSubmit = e => {

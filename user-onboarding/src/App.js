@@ -37,6 +37,7 @@ function App() {
     axios.post('https://reqres.in/api/users', formValues)
       .then(res => {
         setUsers(users.concat(res.data))
+        setFormValues(initialValues)
       })
       .catch(err => console.log(err))
   }
