@@ -50,7 +50,20 @@ describe('Form submits correctly', () => {
         .type('shh...secret')
         .should('have.value', 'shh...secret');
       tos().should('not.be.checked').check().should('be.checked');
-      submitBtn().should('not.be.disabled').click();
+      submitBtn().should('not.be.disabled');
+    })
+
+    it('Submit shows inputted values to page', () => {
+      firstName().type('Justin');
+      lastName().type('Abellera');
+      email().type('email@email.com');
+      password().type('shh...secret');
+      tos().check();
+      submitBtn().click();
+      cy.contains('Justin').should('exist');
+      cy.contains('Abellera').should('exist');
+      cy.contains('email@email.com').should('exist');
+      cy.contains('shh...secret').should('exist');
     })
 
   })
