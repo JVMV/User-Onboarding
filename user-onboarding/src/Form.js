@@ -10,8 +10,8 @@ export default function Form(props) {
         change(name, newVal)
       }
     
-      const checked = e => {
-        
+      const disabled = e => {
+        return null;
       }
     
       const onSubmit = e => {
@@ -69,11 +69,12 @@ export default function Form(props) {
                         onChange={onChange}
                     />
                 </label>
-                <input 
-                    name='submitBtn'
+                <button 
+                    id='submitBtn'
                     type='submit' 
                     value='Submit' 
-                />
+                    disabled={disabled()}
+                >Submit</button>
             </form>
         </div>
     )
